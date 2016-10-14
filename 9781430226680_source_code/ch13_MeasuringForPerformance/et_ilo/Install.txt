@@ -1,0 +1,52 @@
+=========================================================================
+
+    ILO
+    Copyright (c) 2006 - 2008 by Method R Corporation. All rights reserved.
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+=========================================================================
+
+
+Before you re-install or upgrade ILO:
+The ILO installation script replaces packages in an existing installation. This
+means that any custom code you have added to those packages will be lost when you
+re-install or upgrade ILO. If you have added custom code, please save your code changes
+for re-implementation before installing this version of ILO.
+
+**********************************************************************************************
+
+To modify the ILO packages to record elapsed time:
+
+1. Install the 2.3 ILO package from http://method-r.com/software/ilo 
+
+2. Store this set of scripts in a separate directory from the original package.  (You may want to
+   refer to the orginal code later.)
+
+   You must have write permissions to this directory so that the install script can write log files.
+   
+3. cd to the directory containing the modified scripts and start SQL*Plus session without connecting:
+
+	sqlplus /nolog
+
+4. From the SQL prompt in SQL*Plus:
+
+	SQL> @ilo_et_install.sql
+
+5. You will be prompted to enter the name and password of the ILO schema owner from the original 
+   install.  The script will create an elapsed time table, an execution id sequence and recompile 
+   both the ilo_task and ilo_timer packages.  
+
+

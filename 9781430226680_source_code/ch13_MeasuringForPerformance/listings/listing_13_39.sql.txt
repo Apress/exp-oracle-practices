@@ -1,0 +1,10 @@
+PROMPT
+PROMPT . Top 20 lock types by activity
+PROMPT
+
+select * from  (
+   select eq_name, eq_type, total_req#, total_wait#, succ_req#, failed_req#
+   from  v$enqueue_statistics
+   order by total_Req# desc)
+where rownum<21
+/

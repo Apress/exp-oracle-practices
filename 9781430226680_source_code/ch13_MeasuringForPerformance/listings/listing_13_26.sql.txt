@@ -1,0 +1,11 @@
+PROMPT
+PROMPT Query against x$ksmss to see which area is bigger
+PROMPT
+
+select  ksmdsidx,ksmssnam, size_area from(
+select ksmdsidx, ksmssnam,sum(ksmsslen) size_area from x$ksmss
+where  ksmssnam!='free memory'
+group by ksmdsidx, ksmssnam
+order by 3 desc
+)
+Where rownum<21;

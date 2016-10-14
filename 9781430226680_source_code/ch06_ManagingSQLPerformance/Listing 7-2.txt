@@ -1,0 +1,96 @@
+Listing 7-2
+-- Retrieving the sql_id and child_number Values for Use with DBMS_XPLAN.DISPLAY_CURSOR
+
+SQL>variable x number
+SQL>exec :x := 10 ;
+
+PL/SQL procedure successfully completed.
+
+SQL>select /*+ GATHER_PLAN_STATISTICS KM2 */ * from dept where deptno = :x;
+
+         DEPTNO DNAME          LOC
+--------------- -------------- -------------
+             10 ACCOUNTING     NEW YORK
+
+1 row selected.
+
+SQL>SELECT xplan.*
+  2  FROM
+  3     (
+  4     select max(sql_id) keep
+  5            (dense_rank last order by last_active_time) sql_id
+  6          , max(child_number) keep
+  7            (dense_rank last order by last_active_time) child_number
+  8       from v$sql
+  9      where upper(sql_text) like '%&1%'
+ 10        and upper(sql_text) not like '%FROM V$SQL WHERE UPPER(SQL_TEXT) LIKE %'
+ 11      ) sqlinfo,
+ 12     table(DBMS_XPLAN.DISPLAY_CURSOR(sqlinfo.sql_id, 
+sqlinfo.child_number, 'ALLSTATS LAST  +PEEKED_BINDS -ROWS')) xplan
+ 13  /
+Enter value for 1: KM2
+
+PLAN_TABLE_OUTPUT
+-------------------------------------
+SQL_ID  3h1bp5jsm6d7v, child number 0
+-------------------------------------
+select /*+ GATHER_PLAN_STATISTICS KM2 */ * from dept where deptno = :x
+
+Plan hash value: 3816518310
+
+-----------------------------------------------------------------------------------
+| Id  | Operation                | Name           |Starts|A-Rows|A-Time  |Buffers |
+-----------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT         |                |      |     1|00:00.01|      2 |
+|   1 |  TABLE ACCESS BY INDEX RO| DEPT           |     1|     1|00:00.01|      2 |
+|*  2 |   INDEX UNIQUE SCAN      | DEPT_DEPTNO_PK |     1|     1|00:00.01|      1 |
+-----------------------------------------------------------------------------------
+
+Peeked Binds (identified by position):
+--------------------------------------
+
+   1 - (NUMBER): 10
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("DEPTNO"=:X)
+   
+   
+   
+   
+-- Table CREATE and sample data
+
+DROP TABLE DEPT CASCADE CONSTRAINTS;
+CREATE TABLE DEPT
+       (DEPTNO NUMBER(2) constraint dept_deptno_pk primary key,
+	DNAME VARCHAR2(14) ,
+	LOC VARCHAR2(13) ) ;
+
+
+INSERT INTO DEPT VALUES
+	(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES
+	(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES
+	(40,'OPERATIONS','BOSTON');
+
+
+-- pln.sql 
+
+SELECT xplan.*
+  FROM
+     (
+     select max(sql_id) keep
+            (dense_rank last order by last_active_time) sql_id
+          , max(child_number) keep
+            (dense_rank last order by last_active_time) child_number
+       from v$sql
+      where upper(sql_text) like '%&1%'
+        and upper(sql_text) not like '%FROM V$SQL WHERE UPPER(SQL_TEXT) LIKE %'
+      ) sqlinfo,
+     table(DBMS_XPLAN.DISPLAY_CURSOR(sqlinfo.sql_id, sqlinfo.child_number, 'ALLSTATS LAST  +PEEKED_BINDS -ROWS')) xplan
+/
+
+   

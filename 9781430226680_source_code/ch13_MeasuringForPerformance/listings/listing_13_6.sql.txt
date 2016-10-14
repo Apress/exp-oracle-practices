@@ -1,0 +1,14 @@
+PROMPT
+PROMPT Query to see distribution of child latches
+PROMPT
+
+Select * from (
+select child#, gets, misses,sleeps,
+   rank() over (partition by latch# order by gets desc ) rnk_gets,
+   rank() over (partition by latch# order by misses desc )rnk_misses,
+   rank() over (partition by latch# order by sleeps desc ) rnk_sleeps
+ from v$latch_children where name = 'cache buffers chains'
+)
+where rnk_gets <=20 and rnk_misses <=20 and rnk_sleeps <=20
+order by rnk_gets
+/

@@ -1,0 +1,5 @@
+set lines 140 pages 100
+PROMPT
+PROMPT All latch events
+PROMPT
+select name from v$event_name where name like '%latch%' order by 1;

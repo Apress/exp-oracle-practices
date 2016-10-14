@@ -1,0 +1,20 @@
+create table elapsed_time (
+   id               number         not null,
+   spid             varchar2(12)   not null,
+   ilo_module       varchar2(200)  not null,
+   ilo_action       varchar2(200)  not null,
+   ilo_client_id    varchar2(200)  not null,
+   ilo_comment      varchar2(2000),
+   start_time       timestamp,
+   end_time         timestamp,
+   go_time          number,
+   stop_time        number,
+   elapsed_time     number,
+   go_cputime       number,
+   stop_cputime     number,
+   elapsed_cputime  number,
+   error_num        number,
+   parent_id        number,
+   instance         varchar2(200),
+   db_user          varchar2(200)) ;
+

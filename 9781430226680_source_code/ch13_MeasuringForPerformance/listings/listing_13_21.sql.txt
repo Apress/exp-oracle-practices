@@ -1,0 +1,5 @@
+PROMPT
+PROMPT Query showing the number of shared pool latches
+PROMPT
+
+select count(*) from v$latch_children where name='shared pool';

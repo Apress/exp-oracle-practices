@@ -1,0 +1,22 @@
+/* In Session 1 */
+INSERT INTO T5 VALUES(10);
+INSERT INTO T6 VALUES(10,10);
+
+
+
+/* In Session 2 */
+INSERT INTO T5 VALUES(20);
+INSERT INTO T6 VALUES(20,20);
+DELETE FROM T6 WHERE C1=4;
+UPDATE T5 SET C1=30 WHERE C1=4;
+
+
+
+/* In Session 3 */
+INSERT INTO T5 VALUES(20);
+
+
+
+
+/* In Session 1 After a Delay */
+COMMIT;

@@ -1,0 +1,76 @@
+-- Listing 7-1
+-- Comparing Plan Output of EXPLAIN PLAN and DBMS_XPLAN
+
+SQL>variable orgid number
+SQL>exec :orgid := 1;
+
+PL/SQL procedure successfully completed.
+
+SQL>set serveroutput off
+SQL>SELECT AVG(BILL_SEQUENCE_ID) FROM BOM WHERE ORG_ID = :orgid ;
+
+AVG(BILL_SEQUENCE_ID)
+---------------------
+
+
+1 row selected.
+
+SQL>select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST
+2  +PEEKED_BINDS -ROWS'));
+
+PLAN_TABLE_OUTPUT
+-------------------------------------
+SQL_ID  8xbvq97cr6zx2, child number 0
+-------------------------------------
+SELECT AVG(BILL_SEQUENCE_ID) FROM BOM WHERE ORG_ID = :orgid
+
+Plan hash value: 1633877697
+
+------------------------------------------------------------------------------------
+| Id  | Operation                    | Name   |Starts | A-Rows | A-Time  | Buffers |
+------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |        |       |      1 |00:00.01 |      31 |
+|   1 |  SORT AGGREGATE              |        |     1 |      1 |00:00.01 |      31 |
+|   2 |   TABLE ACCESS BY INDEX ROWID| BOM    |     1 |      0 |00:00.01 |      31 |
+|*  3 |    INDEX SKIP SCAN           | BOM_N1 |     1 |      0 |00:00.01 |      31 |
+------------------------------------------------------------------------------------
+
+Peeked Binds (identified by position):
+--------------------------------------
+
+   1 - (NUMBER): 1
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - access("ORG_ID"=:ORGID)
+       filter("ORG_ID"=:ORGID)
+
+
+26 rows selected.
+
+SQL>
+SQL>explain plan for SELECT AVG(BILL_SEQUENCE_ID) FROM BOM WHERE ORG_ID = :orgid ;
+
+Explained.
+
+SQL>select * from table(dbms_xplan.display) ;
+
+PLAN_TABLE_OUTPUT
+-------------------------------------------
+Plan hash value: 1639627616
+
+---------------------------------------------------------------------------
+| Id  | Operation          | Name | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------
+|   0 | SELECT STATEMENT   |      |     1 |     8 |  1557   (2)| 00:00:19 |
+|   1 |  SORT AGGREGATE    |      |     1 |     8 |            |          |
+|*  2 |   TABLE ACCESS FULL| BOM  |   607K|  4744K|  1557   (2)| 00:00:19 |
+---------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - filter("ORG_ID"=TO_NUMBER(:ORGID))
+
+14 rows selected.

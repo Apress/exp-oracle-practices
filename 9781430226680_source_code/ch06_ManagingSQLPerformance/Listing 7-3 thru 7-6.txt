@@ -1,0 +1,52 @@
+
+
+-- BOM Table
+
+set echo off
+set termout on feedback on
+
+whenever sqlerror continue;
+drop table bom;
+	
+set echo on
+create table bom (
+	 bill_sequence_id           number		not null
+	,common_bill_sequence_id    number		not null
+	,item_id              		number		not null
+	,org_id               		number		not null
+	,designator      			varchar2(10)
+	,attribute1                 varchar2(150)
+);
+
+insert into bom
+	select   rownum
+		,mod(rownum, 50)
+		,mod(rownum, 25)
+		,2
+		,decode(least(mod(rownum, 100), 0), 0, to_char(rownum), null)
+		,lpad(' ', mod(rownum, 80))
+	from dba_source;
+
+create table bom2 as select * from bom order by item_id, org_id ;
+drop table bom;
+rename bom2 to bom ;
+
+-- Set some of the rows to null in designator
+update bom
+   set designator = null
+ where item_id = 11 
+   and org_id = 2 
+   and substr(designator,1,1) in ('1','5') ;
+ 
+ 
+alter table bom
+	add constraint bom_pk
+	primary key (bill_sequence_id);
+
+drop index bom_n1;
+create index bom_n1
+	on bom
+	(item_id, org_id);
+
+exec dbms_stats.gather_table_stats(user,'bom',method_opt=>'FOR ALL COLUMNS SIZE 1',cascade=>TRUE);
+

@@ -1,0 +1,9 @@
+PROMPT
+PROMPT Querying for SQL hash values acquiring or holding latch
+PROMPT
+
+select s.sql_hash_value, lh.* from
+v$latchholder lh, v$session s where
+lh.sid=s.sid
+order by s.sql_hash_value
+/

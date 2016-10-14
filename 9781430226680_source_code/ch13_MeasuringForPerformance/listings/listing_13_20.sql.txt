@@ -1,0 +1,9 @@
+PROMPT
+PROMPT Query to list shared pool subheaps
+PROMPT
+
+select ksmdsidx, count(*) , sum(ksmsslen) from x$ksmss
+where ksmdsidx>0
+group by ksmdsidx
+order by 1
+/

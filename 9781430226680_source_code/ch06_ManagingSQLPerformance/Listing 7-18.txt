@@ -1,0 +1,30 @@
+-- Listing 7-18. 
+-- Example Queries and PL/SQL Function
+
+create or replace function get_ord_tot(p_ordno IN number) return number as
+   v_tot  number(13,2);
+begin
+   select sum(total_order_item_price) 
+   into v_tot
+   from items
+   where order_no = p_ordno;
+   return v_tot;
+exception
+   when others then return 0;
+end;
+/
+
+select cust_no, order_no, get_ord_tot(order_no) 
+from orders
+group by cust_no, order_no;
+
+select o.cust_no, o.order_no, sum(i.total_order_item_price) 
+from orders o, items i
+where o.order_no = i.order_no
+group by o.cust_no, o.order_no;
+
+
+
+-- Table create and data load
+
+@orders-items-tables

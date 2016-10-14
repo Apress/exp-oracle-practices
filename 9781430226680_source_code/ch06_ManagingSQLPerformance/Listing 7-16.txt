@@ -1,0 +1,30 @@
+-- Listing 7-16. 
+-- Rewritten Query and Execution Plan
+
+
+SELECT  ATTR_FCTR,    ATTR_FCTR_YR, 
+        ATTR_FCTR_MO, PROJECT_CODE, THE_YRMO  
+  FROM  
+        ( SELECT MAX(SIM_YR || SIM_MO) 
+                 OVER (PARTITION BY PROJECT_CODE) AS THE_MAX,  
+                 ATTR_FCTR,  
+                 ATTR_FCTR_YR,  
+                 ATTR_FCTR_MO,  
+                 PROJECT_CODE,  
+                 SIM_YR || SIM_MO AS THE_YRMO  
+           FROM  PRJ_ATT_FACTORS  
+        ) a  
+WHERE   a.THE_YRMO = THE_MAX ;
+
+------------------------------------------------------------------------------------
+| Id  | Operation           |Name            |Starts |A-Rows |   A-Time   |Buffers |
+------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT    |                |     1 |    32 |00:00:00.01 |      7 |
+|*  1 |  VIEW               |                |     1 |    32 |00:00:00.01 |      7 |
+|   2 |   WINDOW SORT       |                |     1 |    50 |00:00:00.01 |      7 |
+|   3 |    TABLE ACCESS FULL|PRJ_ATT_FACTORS |     1 |    50 |00:00:00.01 |      7 |
+------------------------------------------------------------------------------------
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter("A"."THE_YRMO"="THE_MAX")

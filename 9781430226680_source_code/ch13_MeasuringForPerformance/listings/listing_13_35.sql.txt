@@ -1,0 +1,8 @@
+PROMPT
+PROMPT Skew among enqueue hash chains child latches
+PROMPT
+select * from (
+select child#, gets, misses, sleeps 
+from v$latch_children where name like 'enqueue hash%'
+order by gets desc )
+where rownum <=20;

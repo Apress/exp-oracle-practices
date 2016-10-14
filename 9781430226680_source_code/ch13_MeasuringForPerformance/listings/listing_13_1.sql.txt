@@ -1,0 +1,11 @@
+set lines 140 pages 100
+PROMPT
+PROMPT  Example of solitaire latches
+PROMPT
+col name format A35
+select name, latch# , count(*) from v$latch_children group by name, latch#
+having count(*) =1 order by 1;
+PROMPT
+PROMPT  Example of non-solitaire latches
+select name, latch# , count(*) from v$latch_children group by name, latch#
+having count(*) >1 order by 1;

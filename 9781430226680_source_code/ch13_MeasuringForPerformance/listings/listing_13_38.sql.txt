@@ -1,0 +1,7 @@
+PROMPT
+PROMPT Querying to find latch type and then lock type
+PROMPT
+
+select chr(bitand(1414332420,-16777216)/16777215) ||
+       chr(bitand(1414332420,16711680)/65535) from dual
+/

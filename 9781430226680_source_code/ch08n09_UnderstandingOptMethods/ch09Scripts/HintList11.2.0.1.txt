@@ -1,0 +1,269 @@
+SQL> SELECT NAME, INVERSE, SQL_FEATURE, VERSION FROM V$SQL_HINT ORDER BY NAME;
+
+NAME                           INVERSE                        SQL_FEATURE                    VERSION          
+------------------------------ ------------------------------ ------------------------------ ----------       
+ALL_ROWS                                                      QKSFM_ALL_ROWS                 8.1.0            
+AND_EQUAL                                                     QKSFM_AND_EQUAL                8.1.0            
+ANTIJOIN                                                      QKSFM_TRANSFORMATION           9.0.0            
+APPEND                         NOAPPEND                       QKSFM_CBO                      8.1.0            
+APPEND_VALUES                  NOAPPEND                       QKSFM_CBO                      11.2.0.1         
+BIND_AWARE                     NO_BIND_AWARE                  QKSFM_CURSOR_SHARING           11.1.0.7         
+BITMAP                                                        QKSFM_CBO                      8.1.0            
+BITMAP_TREE                                                   QKSFM_BITMAP_TREE              10.2.0.1         
+BUFFER                         NO_BUFFER                      QKSFM_CBO                      8.1.5            
+BYPASS_RECURSIVE_CHECK                                        QKSFM_ALL                      9.0.0            
+BYPASS_UJVC                                                   QKSFM_CBO                      8.1.5            
+CACHE                          NOCACHE                        QKSFM_EXECUTION                8.1.0            
+CACHE_CB                       NOCACHE                        QKSFM_CBO                      8.1.5            
+CACHE_TEMP_TABLE               NOCACHE                        QKSFM_ALL                      8.1.5            
+CARDINALITY                                                   QKSFM_STATS                    9.0.0            
+CHANGE_DUPKEY_ERROR_INDEX                                     QKSFM_DML                      11.1.0.7         
+CHECK_ACL_REWRITE              NO_CHECK_ACL_REWRITE           QKSFM_CHECK_ACL_REWRITE        11.1.0.6         
+CHOOSE                                                        QKSFM_CHOOSE                   8.1.0            
+CLUSTER                                                       QKSFM_CBO                      8.0.0            
+COALESCE_SQ                    NO_COALESCE_SQ                 QKSFM_COALESCE_SQ              11.2.0.1         
+COLUMN_STATS                                                  QKSFM_STATS                    10.1.0.3         
+CONNECT_BY_CB_WHR_ONLY         NO_CONNECT_BY_CB_WHR_ONLY      QKSFM_TRANSFORMATION           10.2.0.5         
+CONNECT_BY_COMBINE_SW          NO_CONNECT_BY_COMBINE_SW       QKSFM_ALL                      10.2.0.4         
+CONNECT_BY_COST_BASED          NO_CONNECT_BY_COST_BASED       QKSFM_TRANSFORMATION           10.2.0.2         
+CONNECT_BY_ELIM_DUPS           NO_CONNECT_BY_ELIM_DUPS        QKSFM_ALL                      11.2.0.1         
+CONNECT_BY_FILTERING           NO_CONNECT_BY_FILTERING        QKSFM_ALL                      10.2.0.2         
+COST_XML_QUERY_REWRITE         NO_COST_XML_QUERY_REWRITE      QKSFM_COST_XML_QUERY_REWRITE   11.1.0.6         
+CPU_COSTING                    NO_CPU_COSTING                 QKSFM_CPU_COSTING              9.0.0            
+CUBE_GB                                                       QKSFM_CBO                      8.1.5            
+CURSOR_SHARING_EXACT                                          QKSFM_CBO                      9.0.0            
+DBMS_STATS                                                    QKSFM_DBMS_STATS               10.2.0.1         
+DB_VERSION                                                    QKSFM_ALL                      11.1.0.6         
+DEREF_NO_REWRITE                                              QKSFM_ALL                      8.1.0            
+DML_UPDATE                                                    QKSFM_CBO                      9.0.0            
+DOMAIN_INDEX_FILTER            NO_DOMAIN_INDEX_FILTER         QKSFM_CBO                      11.1.0.6         
+DOMAIN_INDEX_NO_SORT           DOMAIN_INDEX_SORT              QKSFM_CBO                      8.1.5            
+DOMAIN_INDEX_SORT              DOMAIN_INDEX_NO_SORT           QKSFM_CBO                      8.1.5            
+DRIVING_SITE                                                  QKSFM_ALL                      8.1.0            
+DST_UPGRADE_INSERT_CONV        NO_DST_UPGRADE_INSERT_CONV     QKSFM_ALL                      11.2.0.1         
+DYNAMIC_SAMPLING                                              QKSFM_DYNAMIC_SAMPLING         9.2.0            
+DYNAMIC_SAMPLING_EST_CDN                                      QKSFM_DYNAMIC_SAMPLING_EST_CDN 9.2.0            
+ELIMINATE_JOIN                 NO_ELIMINATE_JOIN              QKSFM_TABLE_ELIM               10.2.0.1         
+ELIMINATE_OBY                  NO_ELIMINATE_OBY               QKSFM_OBYE                     10.2.0.1         
+EXPAND_GSET_TO_UNION           NO_EXPAND_GSET_TO_UNION        QKSFM_TRANSFORMATION           9.2.0            
+EXPAND_TABLE                   NO_EXPAND_TABLE                QKSFM_TABLE_EXPANSION          11.2.0.1         
+EXPR_CORR_CHECK                                               QKSFM_CBO                      8.0.0            
+FACT                           NO_FACT                        QKSFM_STAR_TRANS               8.1.0            
+FACTORIZE_JOIN                 NO_FACTORIZE_JOIN              QKSFM_JOINFAC                  11.2.0.1         
+FBTSCAN                                                       QKSFM_CBO                      10.1.0.3         
+FIRST_ROWS                                                    QKSFM_FIRST_ROWS               8.1.0            
+FORCE_XML_QUERY_REWRITE        NO_XML_QUERY_REWRITE           QKSFM_XML_REWRITE              9.2.0            
+FULL                                                          QKSFM_FULL                     8.1.0            
+GATHER_PLAN_STATISTICS                                        QKSFM_GATHER_PLAN_STATISTICS   10.1.0.3         
+GBY_CONC_ROLLUP                                               QKSFM_TRANSFORMATION           9.0.0            
+GBY_PUSHDOWN                   NO_GBY_PUSHDOWN                QKSFM_ALL                      11.1.0.6         
+HASH                                                          QKSFM_ALL                      8.1.0            
+HASH_AJ                                                       QKSFM_CBO                      8.1.0            
+HASH_SJ                                                       QKSFM_CBO                      8.1.0            
+HWM_BROKERED                                                  QKSFM_CBO                      9.0.0            
+IGNORE_OPTIM_EMBEDDED_HINTS                                   QKSFM_ALL                      10.1.0.3         
+IGNORE_ROW_ON_DUPKEY_INDEX                                    QKSFM_DML                      11.1.0.7         
+IGNORE_WHERE_CLAUSE                                           QKSFM_ALL                      9.2.0            
+INCLUDE_VERSION                                               QKSFM_ALL                      10.1.0.3         
+INDEX                          NO_INDEX                       QKSFM_INDEX                    8.0.0            
+INDEX_ASC                      NO_INDEX                       QKSFM_INDEX_ASC                8.1.0            
+INDEX_COMBINE                                                 QKSFM_INDEX_COMBINE            8.1.0            
+INDEX_DESC                     NO_INDEX                       QKSFM_INDEX_DESC               8.1.0            
+INDEX_FFS                                                     QKSFM_INDEX_FFS                8.1.0            
+INDEX_JOIN                                                    QKSFM_INDEX_JOIN               8.1.5            
+INDEX_RRS                                                     QKSFM_CBO                      9.0.0            
+INDEX_RS_ASC                                                  QKSFM_INDEX_RS_ASC             11.1.0.6         
+INDEX_RS_DESC                                                 QKSFM_INDEX_RS_DESC            11.1.0.6         
+INDEX_SS                       NO_INDEX_SS                    QKSFM_INDEX_SS                 9.0.0            
+INDEX_SS_ASC                   NO_INDEX_SS                    QKSFM_INDEX_SS_ASC             9.0.0            
+INDEX_SS_DESC                  NO_INDEX_SS                    QKSFM_INDEX_SS_DESC            9.0.0            
+INDEX_STATS                                                   QKSFM_STATS                    10.1.0.3         
+INLINE                         MATERIALIZE                    QKSFM_TRANSFORMATION           9.0.0            
+INLINE_XMLTYPE_NT                                             QKSFM_ALL                      10.2.0.1         
+LEADING                                                       QKSFM_JOIN_ORDER               8.1.6            
+LIKE_EXPAND                                                   QKSFM_TRANSFORMATION           8.1.7            
+LOCAL_INDEXES                                                 QKSFM_CBO                      9.0.0            
+MATERIALIZE                    INLINE                         QKSFM_TRANSFORMATION           9.0.0            
+MERGE                          NO_MERGE                       QKSFM_CVM                      8.1.0            
+MERGE_AJ                                                      QKSFM_CBO                      8.1.0            
+MERGE_CONST_ON                                                QKSFM_CBO                      8.0.0            
+MERGE_SJ                                                      QKSFM_CBO                      8.1.0            
+MODEL_COMPILE_SUBQUERY                                        QKSFM_TRANSFORMATION           10.2.0.1         
+MODEL_DONTVERIFY_UNIQUENESS                                   QKSFM_TRANSFORMATION           10.1.0.3         
+MODEL_DYNAMIC_SUBQUERY                                        QKSFM_TRANSFORMATION           10.2.0.1         
+MODEL_MIN_ANALYSIS                                            QKSFM_TRANSFORMATION           10.1.0.3         
+MODEL_NO_ANALYSIS                                             QKSFM_ALL                      10.1.0.3         
+MODEL_PUSH_REF                 NO_MODEL_PUSH_REF              QKSFM_TRANSFORMATION           10.1.0.3         
+MONITOR                        NO_MONITOR                     QKSFM_ALL                      11.1.0.6         
+MV_MERGE                                                      QKSFM_TRANSFORMATION           9.0.0            
+NATIVE_FULL_OUTER_JOIN         NO_NATIVE_FULL_OUTER_JOIN      QKSFM_ALL                      10.2.0.3         
+NESTED_TABLE_FAST_INSERT                                      QKSFM_ALL                      10.1.0.3         
+NESTED_TABLE_GET_REFS                                         QKSFM_ALL                      8.1.0            
+NESTED_TABLE_SET_SETID                                        QKSFM_ALL                      8.1.5            
+NLJ_BATCHING                   NO_NLJ_BATCHING                QKSFM_EXECUTION                11.1.0.6         
+NLJ_PREFETCH                   NO_NLJ_PREFETCH                QKSFM_EXECUTION                11.1.0.6         
+NL_AJ                                                         QKSFM_CBO                      8.0.0            
+NL_SJ                                                         QKSFM_CBO                      8.0.0            
+NOAPPEND                       APPEND                         QKSFM_CBO                      8.1.0            
+NOCACHE                        CACHE                          QKSFM_EXECUTION                8.1.0            
+NOPARALLEL                     SHARED                         QKSFM_PARALLEL                 8.1.0            
+NO_ACCESS                                                     QKSFM_ALL                      8.1.5            
+NO_BASETABLE_MULTIMV_REWRITE   REWRITE                        QKSFM_ALL                      10.1.0.3         
+NO_BIND_AWARE                  BIND_AWARE                     QKSFM_CURSOR_SHARING           11.1.0.7         
+NO_BUFFER                      BUFFER                         QKSFM_CBO                      8.1.5            
+NO_CARTESIAN                                                  QKSFM_ALL                      10.2.0.1         
+NO_CHECK_ACL_REWRITE           CHECK_ACL_REWRITE              QKSFM_CHECK_ACL_REWRITE        11.1.0.6         
+NO_COALESCE_SQ                 COALESCE_SQ                    QKSFM_COALESCE_SQ              11.2.0.1         
+NO_CONNECT_BY_CB_WHR_ONLY      CONNECT_BY_CB_WHR_ONLY         QKSFM_TRANSFORMATION           10.2.0.5         
+NO_CONNECT_BY_COMBINE_SW       CONNECT_BY_COMBINE_SW          QKSFM_ALL                      10.2.0.4         
+NO_CONNECT_BY_COST_BASED       CONNECT_BY_COST_BASED          QKSFM_TRANSFORMATION           10.2.0.2         
+NO_CONNECT_BY_ELIM_DUPS        CONNECT_BY_ELIM_DUPS           QKSFM_ALL                      11.2.0.1         
+NO_CONNECT_BY_FILTERING        CONNECT_BY_FILTERING           QKSFM_ALL                      10.2.0.2         
+NO_COST_XML_QUERY_REWRITE      COST_XML_QUERY_REWRITE         QKSFM_COST_XML_QUERY_REWRITE   11.1.0.6         
+NO_CPU_COSTING                 CPU_COSTING                    QKSFM_CPU_COSTING              9.0.0            
+NO_DOMAIN_INDEX_FILTER         DOMAIN_INDEX_FILTER            QKSFM_CBO                      11.1.0.6         
+NO_DST_UPGRADE_INSERT_CONV     DST_UPGRADE_INSERT_CONV        QKSFM_ALL                      11.2.0.1         
+NO_ELIMINATE_JOIN              ELIMINATE_JOIN                 QKSFM_TABLE_ELIM               10.2.0.1         
+NO_ELIMINATE_OBY               ELIMINATE_OBY                  QKSFM_OBYE                     10.2.0.1         
+NO_EXPAND                      USE_CONCAT                     QKSFM_USE_CONCAT               8.1.0            
+NO_EXPAND_GSET_TO_UNION        EXPAND_GSET_TO_UNION           QKSFM_TRANSFORMATION           9.2.0            
+NO_EXPAND_TABLE                EXPAND_TABLE                   QKSFM_TABLE_EXPANSION          11.2.0.1         
+NO_FACT                        FACT                           QKSFM_STAR_TRANS               8.1.0            
+NO_FACTORIZE_JOIN              FACTORIZE_JOIN                 QKSFM_JOINFAC                  11.2.0.1         
+NO_GBY_PUSHDOWN                GBY_PUSHDOWN                   QKSFM_ALL                      11.1.0.6         
+NO_INDEX                       INDEX                          QKSFM_INDEX                    8.1.5            
+NO_INDEX_FFS                   INDEX_FFS                      QKSFM_INDEX_FFS                10.1.0.3         
+NO_INDEX_SS                    INDEX_SS                       QKSFM_INDEX_SS                 10.1.0.3         
+NO_LOAD                                                       QKSFM_EXECUTION                11.1.0.6         
+NO_MERGE                       MERGE                          QKSFM_CVM                      8.0.0            
+NO_MODEL_PUSH_REF              MODEL_PUSH_REF                 QKSFM_ALL                      10.1.0.3         
+NO_MONITOR                     MONITOR                        QKSFM_ALL                      11.1.0.6         
+NO_MONITORING                                                 QKSFM_ALL                      8.0.0            
+NO_MULTIMV_REWRITE             REWRITE                        QKSFM_ALL                      10.1.0.3         
+NO_NATIVE_FULL_OUTER_JOIN      NATIVE_FULL_OUTER_JOIN         QKSFM_ALL                      10.2.0.3         
+NO_NLJ_BATCHING                NLJ_BATCHING                   QKSFM_EXECUTION                11.1.0.6         
+NO_NLJ_PREFETCH                NLJ_PREFETCH                   QKSFM_EXECUTION                11.1.0.6         
+NO_ORDER_ROLLUPS                                              QKSFM_TRANSFORMATION           8.0.0            
+NO_OUTER_JOIN_TO_INNER         OUTER_JOIN_TO_INNER            QKSFM_OUTER_JOIN_TO_INNER      11.1.0.6         
+NO_PARALLEL                    SHARED                         QKSFM_CBO                      10.1.0.3         
+NO_PARALLEL_INDEX              PARALLEL_INDEX                 QKSFM_PQ                       8.1.0            
+NO_PARTIAL_COMMIT                                             QKSFM_CBO                      10.1.0.3         
+NO_PLACE_DISTINCT              PLACE_DISTINCT                 QKSFM_DIST_PLCMT               11.2.0.1         
+NO_PLACE_GROUP_BY              PLACE_GROUP_BY                 QKSFM_PLACE_GROUP_BY           11.1.0.6         
+NO_PRUNE_GSETS                                                QKSFM_TRANSFORMATION           9.0.0            
+NO_PULL_PRED                   PULL_PRED                      QKSFM_PULL_PRED                10.2.0.1         
+NO_PUSH_PRED                   PUSH_PRED                      QKSFM_FILTER_PUSH_PRED         8.1.0            
+NO_PUSH_SUBQ                   PUSH_SUBQ                      QKSFM_TRANSFORMATION           9.2.0            
+NO_PX_JOIN_FILTER              PX_JOIN_FILTER                 QKSFM_PX_JOIN_FILTER           10.2.0.1         
+NO_QKN_BUFF                                                   QKSFM_CBO                      9.2.0            
+NO_QUERY_TRANSFORMATION                                       QKSFM_TRANSFORMATION           10.1.0.3         
+NO_REF_CASCADE                 REF_CASCADE_CURSOR             QKSFM_CBO                      9.2.0            
+NO_RESULT_CACHE                RESULT_CACHE                   QKSFM_EXECUTION                11.1.0.6         
+NO_REWRITE                     REWRITE                        QKSFM_TRANSFORMATION           8.1.5            
+NO_SEMIJOIN                    SEMIJOIN                       QKSFM_TRANSFORMATION           9.0.0            
+NO_SET_TO_JOIN                 SET_TO_JOIN                    QKSFM_SET_TO_JOIN              10.1.0.3         
+NO_SQL_TUNE                                                   QKSFM_ALL                      10.2.0.1         
+NO_STAR_TRANSFORMATION         STAR_TRANSFORMATION            QKSFM_STAR_TRANS               10.1.0.3         
+NO_STATEMENT_QUEUING           STATEMENT_QUEUING              QKSFM_PARALLEL                 11.2.0.1         
+NO_STATS_GSETS                                                QKSFM_ALL                      8.0.0            
+NO_SUBQUERY_PRUNING            SUBQUERY_PRUNING               QKSFM_CBO                      11.1.0.6         
+NO_SUBSTRB_PAD                                                QKSFM_EXECUTION                11.2.0.1         
+NO_SWAP_JOIN_INPUTS            SWAP_JOIN_INPUTS               QKSFM_CBO                      10.1.0.3         
+NO_TRANSFORM_DISTINCT_AGG      TRANSFORM_DISTINCT_AGG         QKSFM_TRANSFORMATION           11.2.0.1         
+NO_UNNEST                      UNNEST                         QKSFM_UNNEST                   8.1.6            
+NO_USE_HASH                    USE_HASH                       QKSFM_USE_HASH                 10.1.0.3         
+NO_USE_HASH_AGGREGATION        USE_HASH_AGGREGATION           QKSFM_ALL                      10.2.0.1         
+NO_USE_INVISIBLE_INDEXES       USE_INVISIBLE_INDEXES          QKSFM_INDEX                    11.1.0.6         
+NO_USE_MERGE                   USE_MERGE                      QKSFM_USE_MERGE                10.1.0.3         
+NO_USE_NL                      USE_NL                         QKSFM_USE_NL                   10.1.0.3         
+NO_XMLINDEX_REWRITE            XMLINDEX_REWRITE               QKSFM_XMLINDEX_REWRITE         11.1.0.6         
+NO_XMLINDEX_REWRITE_IN_SELECT  XMLINDEX_REWRITE_IN_SELECT     QKSFM_XMLINDEX_REWRITE         11.1.0.6         
+NO_XML_DML_REWRITE                                            QKSFM_XML_REWRITE              10.2.0.1         
+NO_XML_QUERY_REWRITE           FORCE_XML_QUERY_REWRITE        QKSFM_XML_REWRITE              9.2.0            
+NUM_INDEX_KEYS                                                QKSFM_CBO                      10.2.0.3         
+OLD_PUSH_PRED                                                 QKSFM_OLD_PUSH_PRED            10.2.0.1         
+OPAQUE_TRANSFORM                                              QKSFM_TRANSFORMATION           10.1.0.3         
+OPAQUE_XCANONICAL                                             QKSFM_TRANSFORMATION           10.1.0.3         
+OPTIMIZER_FEATURES_ENABLE                                     QKSFM_ALL                      10.1.0.3         
+OPT_ESTIMATE                                                  QKSFM_OPT_ESTIMATE             10.1.0.3         
+OPT_PARAM                                                     QKSFM_ALL                      10.2.0.1         
+ORDERED                                                       QKSFM_CBO                      8.1.0            
+ORDERED_PREDICATES                                            QKSFM_CBO                      8.0.0            
+OR_EXPAND                                                     QKSFM_OR_EXPAND                8.1.7            
+OUTER_JOIN_TO_INNER            NO_OUTER_JOIN_TO_INNER         QKSFM_OUTER_JOIN_TO_INNER      11.1.0.6         
+OUTLINE                                                       QKSFM_ALL                      10.2.0.1         
+OUTLINE_LEAF                                                  QKSFM_ALL                      10.2.0.1         
+OVERFLOW_NOMOVE                                               QKSFM_CBO                      9.0.0            
+PARALLEL_INDEX                 NO_PARALLEL_INDEX              QKSFM_PQ                       8.1.0            
+PIV_GB                                                        QKSFM_ALL                      8.1.0            
+PIV_SSF                                                       QKSFM_ALL                      8.1.0            
+PLACE_DISTINCT                 NO_PLACE_DISTINCT              QKSFM_DIST_PLCMT               11.2.0.1         
+PLACE_GROUP_BY                 NO_PLACE_GROUP_BY              QKSFM_PLACE_GROUP_BY           11.1.0.6         
+PQ_DISTRIBUTE                                                 QKSFM_PQ_DISTRIBUTE            8.1.5            
+PQ_MAP                         PQ_NOMAP                       QKSFM_PQ_MAP                   9.0.0            
+PQ_NOMAP                       PQ_MAP                         QKSFM_PQ_MAP                   9.0.0            
+PRECOMPUTE_SUBQUERY                                           QKSFM_TRANSFORMATION           10.2.0.1         
+PRESERVE_OID                                                  QKSFM_ALL                      10.2.0.1         
+PULL_PRED                      NO_PULL_PRED                   QKSFM_PULL_PRED                10.2.0.1         
+PUSH_PRED                      NO_PUSH_PRED                   QKSFM_FILTER_PUSH_PRED         8.1.0            
+PUSH_SUBQ                      NO_PUSH_SUBQ                   QKSFM_TRANSFORMATION           8.1.0            
+PX_JOIN_FILTER                 NO_PX_JOIN_FILTER              QKSFM_PX_JOIN_FILTER           10.2.0.1         
+QB_NAME                                                       QKSFM_ALL                      10.1.0.3         
+QUEUE_CURR                                                    QKSFM_CBO                      8.0.0            
+QUEUE_ROWP                                                    QKSFM_CBO                      8.0.0            
+RBO_OUTLINE                                                   QKSFM_RBO                      10.2.0.1         
+REF_CASCADE_CURSOR             NO_REF_CASCADE                 QKSFM_CBO                      9.2.0            
+REMOTE_MAPPED                                                 QKSFM_ALL                      8.1.0            
+RESTORE_AS_INTERVALS                                          QKSFM_CBO                      8.1.5            
+RESTRICT_ALL_REF_CONS                                         QKSFM_ALL                      10.1.0.3         
+RESULT_CACHE                   NO_RESULT_CACHE                QKSFM_EXECUTION                11.1.0.6         
+RETRY_ON_ROW_CHANGE                                           QKSFM_DML                      11.1.0.7         
+REWRITE                        NO_REWRITE                     QKSFM_TRANSFORMATION           8.1.5            
+REWRITE_OR_ERROR                                              QKSFM_TRANSFORMATION           10.1.0.3         
+ROWID                                                         QKSFM_CBO                      8.0.0            
+RULE                                                          QKSFM_RBO                      8.1.0            
+SAVE_AS_INTERVALS                                             QKSFM_CBO                      8.1.5            
+SCN_ASCENDING                                                 QKSFM_ALL                      8.1.5            
+SEMIJOIN                       NO_SEMIJOIN                    QKSFM_TRANSFORMATION           9.0.0            
+SEMIJOIN_DRIVER                                               QKSFM_CBO                      8.1.0            
+SET_TO_JOIN                    NO_SET_TO_JOIN                 QKSFM_SET_TO_JOIN              10.1.0.3         
+SHARED                         NO_PARALLEL                    QKSFM_PARALLEL                 8.1.0            
+SKIP_EXT_OPTIMIZER                                            QKSFM_CBO                      9.0.0            
+SKIP_UNQ_UNUSABLE_IDX                                         QKSFM_CBO                      10.1.0.3         
+SQLLDR                                                        QKSFM_CBO                      9.0.0            
+STAR                                                          QKSFM_STAR_TRANS               8.1.0            
+STAR_TRANSFORMATION            NO_STAR_TRANSFORMATION         QKSFM_STAR_TRANS               8.1.0            
+STATEMENT_QUEUING              NO_STATEMENT_QUEUING           QKSFM_PARALLEL                 11.2.0.1         
+STREAMS                                                       QKSFM_CBO                      10.1.0.3         
+SUBQUERY_PRUNING               NO_SUBQUERY_PRUNING            QKSFM_CBO                      11.1.0.6         
+SWAP_JOIN_INPUTS               NO_SWAP_JOIN_INPUTS            QKSFM_CBO                      8.1.0            
+SYS_DL_CURSOR                                                 QKSFM_CBO                      9.2.0            
+SYS_PARALLEL_TXN                                              QKSFM_CBO                      8.1.6            
+SYS_RID_ORDER                                                 QKSFM_ALL                      9.2.0            
+TABLE_STATS                                                   QKSFM_STATS                    10.1.0.3         
+TIV_GB                                                        QKSFM_ALL                      8.1.0            
+TIV_SSF                                                       QKSFM_ALL                      8.1.0            
+TRACING                                                       QKSFM_EXECUTION                10.1.0.3         
+TRANSFORM_DISTINCT_AGG         NO_TRANSFORM_DISTINCT_AGG      QKSFM_TRANSFORMATION           11.2.0.1         
+UNNEST                         NO_UNNEST                      QKSFM_UNNEST                   8.1.6            
+USE_ANTI                                                      QKSFM_CBO                      8.1.0            
+USE_CONCAT                     NO_EXPAND                      QKSFM_USE_CONCAT               8.1.0            
+USE_HASH                       NO_USE_HASH                    QKSFM_USE_HASH                 8.1.0            
+USE_HASH_AGGREGATION           NO_USE_HASH_AGGREGATION        QKSFM_ALL                      10.2.0.1         
+USE_INVISIBLE_INDEXES          NO_USE_INVISIBLE_INDEXES       QKSFM_INDEX                    11.1.0.6         
+USE_MERGE                      NO_USE_MERGE                   QKSFM_USE_MERGE                8.1.0            
+USE_MERGE_CARTESIAN                                           QKSFM_USE_MERGE_CARTESIAN      11.1.0.6         
+USE_NL                         NO_USE_NL                      QKSFM_USE_NL                   8.1.0            
+USE_NL_WITH_INDEX              NO_USE_NL                      QKSFM_USE_NL_WITH_INDEX        10.1.0.3         
+USE_SEMI                                                      QKSFM_CBO                      8.1.0            
+USE_TTT_FOR_GSETS                                             QKSFM_TRANSFORMATION           9.0.0            
+USE_WEAK_NAME_RESL                                            QKSFM_ALL                      10.1.0.3         
+VECTOR_READ                                                   QKSFM_CBO                      10.1.0.3         
+VECTOR_READ_TRACE                                             QKSFM_CBO                      10.1.0.3         
+XMLINDEX_REWRITE               NO_XMLINDEX_REWRITE            QKSFM_XMLINDEX_REWRITE         11.1.0.6         
+XMLINDEX_REWRITE_IN_SELECT     NO_XMLINDEX_REWRITE_IN_SELECT  QKSFM_XMLINDEX_REWRITE         11.1.0.6         
+XMLINDEX_SEL_IDX_TBL                                          QKSFM_ALL                      11.2.0.1         
+XML_DML_RWT_STMT                                              QKSFM_XML_REWRITE              11.1.0.6         
+X_DYN_PRUNE                                                   QKSFM_CBO                      10.1.0.3         
+
+263 rows selected.

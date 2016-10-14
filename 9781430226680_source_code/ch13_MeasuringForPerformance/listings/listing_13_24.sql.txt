@@ -1,0 +1,6 @@
+PROMPT
+PROMPT Query to show distribution of shared pool latch children
+PROMPT
+
+select child#, gets , misses, immediate_gets, immediate_misses
+from v$latch_children where name='shared pool';

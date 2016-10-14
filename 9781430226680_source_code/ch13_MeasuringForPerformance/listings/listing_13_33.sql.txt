@@ -1,0 +1,11 @@
+PROMPT
+PROMPT Query to see top 20 SQL statements with high version_count values
+PROMPT
+
+select * from (
+    select hash_value,  module, action, executions, parse_calls,
+    version_count, sharable_mem,persistent_mem from v$sqlarea
+    where version_count>10
+    order by version_count desc
+) where rownum<21
+/
